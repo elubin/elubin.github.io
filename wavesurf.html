@@ -63,7 +63,7 @@
 				var newVolume = $('#myRange').val();
 				console.log('slider changed', newVolume);
 				wavesurfer.setVolume(newVolume);
-				$('#volume').html(wavesurfer.getVolume());
+				$('#volume').html(newVolume);
 			})
 		});
 		</script>
