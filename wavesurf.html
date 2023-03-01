@@ -49,6 +49,7 @@
 			  crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<script>
+		var wavesurfer;
 		function setVolume(v) {
 				var newVolume = $('#myRange').val();
 				var i = parseInt(newVolume, 10);
@@ -58,7 +59,7 @@
 				$('#volume').html(newVolume);
 		}
 		$().ready(() => {
-			var wavesurfer = WaveSurfer.create({
+			wavesurfer = WaveSurfer.create({
 				container: '#eal',
 				waveColor: 'green',
 				progressColor: 'red'
