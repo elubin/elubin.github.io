@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
+	<style type="text/css">
+	.slidecontainer {
+  width: 40%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 10px; /* Set a specific slider handle width */
+  height: 19px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+	</style>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script
@@ -18,6 +58,13 @@
 			wavesurfer.load('flappers.mp3');
 			$('#play').on('click', () => {wavesurfer.play();});
 			$('#pause').on('click', () => {wavesurfer.pause();});
+			//$('#volume').html(wavesurfer.getVolume());
+			$('#myRange').on('change', (e) => {
+				var newVolume = $('#myRange').val();
+				console.log('slider changed', newVolume);
+				wavesurfer.setVolume(newVolume);
+				$('#volume').html(wavesurfer.getVolume());
+			})
 		});
 		</script>
 	</head>
@@ -28,5 +75,10 @@
 		<br />
 		<button id="play">Play</button>
 		<button id="pause">Pause</button>
+		<br />
+		Volume: <span id="volume"></span>
+		<div class="slidecontainer" style="width: 30%; height: ">
+			<input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+		</div>
 	</body>
 </html>
