@@ -10,19 +10,15 @@
 		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<script>
 		$().ready(() => {
-		var wavesurfer = WaveSurfer.create({
-			container: '#eal',
-			waveColor: 'green',
-			progressColor: 'red'
+			var wavesurfer = WaveSurfer.create({
+				container: '#eal',
+				waveColor: 'green',
+				progressColor: 'red'
+			});
+			wavesurfer.load('flappers.mp3');
+			$('#play').on('click', () => {wavesurfer.play();});
+			$('#pause').on('click', () => {wavesurfer.pause();});
 		});
-		wavesurfer.load('flappers.mp3');
-		});
-		
-		//wavesurfer.on('ready', function () {
-//			wavesurfer.play();
-		//});
-		$('#play').on('click', () => {wavesurfer.play();});
-		$('#pause').on('click', () => {wavesurfer.pause();});
 		</script>
 	</head>
 	<body>
@@ -32,10 +28,5 @@
 		<br />
 		<button id="play">Play</button>
 		<button id="pause">Pause</button>
-		<audio controls>
-		<source src="flappers.mp3" type="audio/mpeg">
-		Your browser does not support the audio element.
-		</audio>
-
 	</body>
 </html>
