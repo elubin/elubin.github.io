@@ -49,6 +49,14 @@
 			  crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<script>
+		function setVolume(v) {
+				var newVolume = $('#myRange').val();
+				var i = parseInt(newVolume, 10);
+				var j = (i/100).toFixed(2);
+				console.log('slider changed', newVolume, i, j);
+				wavesurfer.setVolume(j);
+				$('#volume').html(newVolume);
+		}
 		$().ready(() => {
 			var wavesurfer = WaveSurfer.create({
 				container: '#eal',
@@ -59,12 +67,8 @@
 			$('#play').on('click', () => {wavesurfer.play();});
 			$('#pause').on('click', () => {wavesurfer.pause();});
 			//$('#volume').html(wavesurfer.getVolume());
-			$('#myRange').on('change', (e) => {
-				var newVolume = $('#myRange').val();
-				console.log('slider changed', newVolume);
-				wavesurfer.setVolume(newVolume);
-				$('#volume').html(newVolume);
-			})
+			$('#myRange').on('change', (e) => { setVolume() });
+			setVolume()
 		});
 		</script>
 	</head>
