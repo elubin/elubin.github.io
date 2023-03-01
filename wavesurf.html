@@ -16,6 +16,12 @@
 			progressColor: 'red'
 		});
 		wavesurfer.load('flappers.mp3');
+			
+		wavesurfer.on('ready', function () {
+			wavesurfer.play();
+		});
+
+			
 		});
 		</script>
 	</head>
