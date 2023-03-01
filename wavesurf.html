@@ -3,17 +3,25 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script
+			  src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+			  integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo="
+			  crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<script>
+		$().ready(() => {
 		var wavesurfer = WaveSurfer.create({
 			container: '#eal',
 			waveColor: 'green',
 			progressColor: 'red'
 		});
 		wavesurfer.load('audio.wav');
+		});
 		</script>
 	</head>
 	<body>
+	Here is my wave surfer....
+	<br />
 		<div id="eal"></div>
 	</body>
 </html>
