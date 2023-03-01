@@ -16,18 +16,21 @@
 			progressColor: 'red'
 		});
 		wavesurfer.load('flappers.mp3');
-			
-		wavesurfer.on('ready', function () {
-			wavesurfer.play();
 		});
-
-			
-		});
+		
+		//wavesurfer.on('ready', function () {
+//			wavesurfer.play();
+		//});
+		$('#play').on('click', () => {wavesurfer.play();});
+		$('#pause').on('click', () => {wavesurfer.pause();});
 		</script>
 	</head>
 	<body>
 	Here is my wave surfer....
 	<br />
 		<div id="eal"></div>
+		<br />
+		<button id="play">Play</button>
+		<button id="pause">Pause</button>
 	</body>
 </html>
